@@ -1,4 +1,4 @@
 class Question < ActiveRecord::Base
   belongs_to :examination
-  validates :answer, inclusion: { in: [1,2]}
+  validates :answer, numericality: { only_integer: true, greater_than: 0, less_than: 3 }
 end
