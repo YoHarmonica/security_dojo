@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :examination do
-    description "MyString"
+    sequence(:description) { |n| "#{n}月のテスト" }
   end
 end
