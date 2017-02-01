@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'home#index'
+  # root to: 'home#index'
+  root to: 'examinations#index'
   get 'home/index'
 
   resources :examinations
   resources :questions
+  namespace :admin do
+    resources :examinations
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
