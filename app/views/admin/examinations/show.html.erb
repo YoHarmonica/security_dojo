@@ -1,0 +1,11 @@
+<h3><%= @examination.description %></h3> <!-- 値 -->
+<table border="1">
+  <tbody>
+  <% @questions.each do |question| %> <!-- 実行はするけど表示されない -->
+    <tr>
+      <td><%= question.text %></td>
+      <td><%= question.answer_text %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
