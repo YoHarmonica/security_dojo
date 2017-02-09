@@ -4,6 +4,7 @@ User.delete_all
 Examination.delete_all
 Question.delete_all
 Trial.delete_all
+Result.delete_all
 @user = FactoryGirl.create(:user)
 12.times do
   @exam = FactoryGirl.create(:examination)

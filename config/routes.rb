@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+  get 'trials/new'
+
+  get 'trials/create'
+
   devise_for :users
   # root to: 'home#index'
   root to: 'examinations#index'
   get 'home/index'
 
-  resources :examinations
+  resources :examinations do
+    # 次回(2/13)localhost:3000/examinations/:id/trials/new を作るためにexaminationsを拡張する
+  end
   resources :questions
+  resources :trials, only: [:new, :create]
   namespace :admin do
     resources :examinations
   end

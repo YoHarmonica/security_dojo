@@ -1,7 +1,6 @@
 module Admin
   class ExaminationsController < ApplicationController
     def index
-      binding.pry
       @examinations = Examination.all #Examinationテーブル(月一テスト一覧)のすべてのデータが取り出せる
     end
 
