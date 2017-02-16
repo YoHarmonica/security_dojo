@@ -1,20 +1,18 @@
 Rails.application.routes.draw do
   get 'trials/new'
 
-  get 'trials/create'
-
   devise_for :users
   # root to: 'home#index'
   root to: 'examinations#index'
   get 'home/index'
 
   resources :examinations do
-    # 次回(2/13)localhost:3000/examinations/:id/trials/new を作るためにexaminationsを拡張する
+    resources :trials, only: [:new, :create]
+      # 次回(2/13)localhost:3000/examinations/:id/trials/new を作るためにexaminationsを拡張する
   end
   resources :questions
-  resources :trials, only: [:new, :create]
   namespace :admin do
-    resources :examinations
+  resources :examinations
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

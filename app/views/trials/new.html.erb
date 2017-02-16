@@ -1,2 +1,5 @@
 <h1>Trials#new</h1>
-<p>Find me in app/views/trials/new.html.erb</p>
+ <%# binding.pry %>
+<%= form_for [@examination, @trial] do |f| %>
+  <%= f.submit %>
+<% end %>
