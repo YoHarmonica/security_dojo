@@ -2,8 +2,9 @@
 <%= form_for [@examination, @trial] do |f| %>
   <%= f.fields_for :results do |result_form| %>
     <%= result_form.label :answer, result_form.object.text %>
+    <%#= result_form.text_field :answer %>
     <%= result_form.radio_button :answer, 1 %> <%= result_form.label :answer_1, '×' %>
-    <%= result_form.radio_button :answer, 2 %> <%= result_form.label :answer_2, '○' %>
+    <%= result_form.radio_button :answer, 2 %> <%=result_form.label :answer_2, '○' %>
     <br>
   <% end %>
   <%= f.submit %>
