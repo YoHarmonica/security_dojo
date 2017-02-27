@@ -17,6 +17,6 @@ class TrialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trial_params
-      params.require(:trial).permit(results_attributes: [ :answer ])
+      params.require(:trial).permit(results_attributes: [ :answer, :question_id ])
     end
 end

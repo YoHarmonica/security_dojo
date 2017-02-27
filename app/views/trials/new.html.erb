@@ -5,6 +5,7 @@
     <%#= result_form.text_field :answer %>
     <%= result_form.radio_button :answer, 1 %> <%= result_form.label :answer_1, '×' %>
     <%= result_form.radio_button :answer, 2 %> <%=result_form.label :answer_2, '○' %>
+    <%= result_form.hidden_field :question_id, value: result_form.object.question_id %>
     <br>
   <% end %>
   <%= f.submit %>
