@@ -10,7 +10,18 @@ class TrialsController < ApplicationController
   def create
     @trial = Trial.new(trial_params)
     @trial.user_id = current_user.id
-    @trial.save
+    # binding.pry
+    # @trial.save
+    if @trial.valid?
+      redirect_to @trial, notice: 'Trial was successfully created.'
+    else
+      render :new
+
+
+    end
+
+
+    end
   end
 
   private
