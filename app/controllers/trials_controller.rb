@@ -8,19 +8,15 @@ class TrialsController < ApplicationController
   end
 
   def create
+    @examination = Examination.find(params[:examination_id])
     @trial = Trial.new(trial_params)
     @trial.user_id = current_user.id
     # binding.pry
     # @trial.save
     if @trial.valid?
-      redirect_to @trial, notice: 'Trial was successfully created.'
+      redirect_to examinations_path, notice: "#{@trial.score}点、合格です！"
     else
       render :new
-
-
-    end
-
-
     end
   end
 
