@@ -5,7 +5,12 @@ class Trial < ActiveRecord::Base
   accepts_nested_attributes_for :results
 
   def score
-    results.select {|r| r.correct?}.length * 10
+    results.select {|r| r.correct?}.length * 10 #点数を出す
   end
+
+  def pass?
+    score >= 10
+  end
+
 
 end

@@ -11,11 +11,17 @@ class TrialsController < ApplicationController
     @examination = Examination.find(params[:examination_id])
     @trial = Trial.new(trial_params)
     @trial.user_id = current_user.id
-    # binding.pry
-    # @trial.save
+    @trial.examination_id = @examination.id
     if @trial.valid?
-      redirect_to examinations_path, notice: "#{@trial.score}点、合格です！"
+      if @trial.pass?
+        @trial.save
+        redirect_to examinations_path, notice: "#{@trial.score}点、合格です！"
+      else
+        flash.now[:alert] = "不合格です"
+        render :new
+      end
     else
+      flash.now[:alert] = "選択されてない問題があります"
       render :new
     end
   end
