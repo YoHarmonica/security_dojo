@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :trials
   has_many :results, through: :trials
+
+  def passed?(examination_id)
+    trials.select {|t| t.examination_id == examination_id}.present?
+  end
 end

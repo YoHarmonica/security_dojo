@@ -15,7 +15,7 @@
       <tr>
         <td><%= examination.description %></td>
         <td>
-          <% if false %>
+          <% if current_user.passed?(examination.id) %>
             受験済
           <% else %>
             <%= link_to '受験する', new_examination_trial_path(examination) %>

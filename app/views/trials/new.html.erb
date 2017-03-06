@@ -1,5 +1,16 @@
 <h1>Trials#new</h1>
 <%= form_for [@examination, @trial] do |f| %>
+  <% if @trial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trial.errors.count, "error") %> prohibited this trial from being saved:</h2>
+
+      <ul>
+      <% @trial.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= f.fields_for :results do |result_form| %>
     <%= result_form.label :answer, result_form.object.text %>
     <%#= result_form.text_field :answer %>
