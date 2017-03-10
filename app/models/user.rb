@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :results, through: :trials
 
   def passed?(examination_id)
-    trials.select {|t| t.examination_id == examination_id}.present?
+    # trials.select {|t| t.examination_id == examination_id}.present?
+    trials.where(examination_id: examination_id).count > 0
   end
 end
